@@ -3,3 +3,7 @@ tensorflow-macos
 tensorflow-metal
 ultralytics
 ipykernel
+opencv-python
+supervision
+numpy
+scikit-learn
