@@ -2,3 +2,4 @@ tensorflow
 tensorflow-macos
 tensorflow-metal
 ultralytics
+ipykernel
