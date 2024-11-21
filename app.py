@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for
 import os
 from werkzeug.utils import secure_filename
-from main import main  # Import your main script logic
+from src.main import main 
 
 app = Flask(__name__)
 
