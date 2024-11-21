@@ -8,3 +8,5 @@ supervision
 numpy
 scikit-learn
 pickle5
+werkzeug
+flask

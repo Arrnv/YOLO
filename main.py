@@ -10,9 +10,9 @@ from view_transformer import ViewTransformer
 from speed_and_distance_estimator import SpeedAndDistance_Estimator
 
 
-def main():
+def main(input_path, output_path):
     # Read Video
-    video_frames = read_video('inputvideos/D35bd9041_1 (25).mp4')
+    video_frames = read_video(input_path)
 
     # Initialize Tracker
     tracker = Tracker('models/best.pt')
@@ -82,7 +82,5 @@ def main():
     speed_and_distance_estimator.draw_speed_and_distance(output_video_frames,tracks)
 
     # Save video
-    save_video(output_video_frames, 'output_videos/output_video.avi')
+    save_video(output_video_frames, output_path)
 
-if __name__ == '__main__':
-    main()
