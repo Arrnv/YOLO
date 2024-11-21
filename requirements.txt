@@ -7,3 +7,4 @@ opencv-python
 supervision
 numpy
 scikit-learn
+pickle5
