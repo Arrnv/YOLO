@@ -135,4 +135,4 @@ def download_video():
     return render_template('download.html', video_path='/output_videos/output_video.mp4')
 
 if __name__ == '__main__':
-    application.run(debug=True)
+    application.run(host="0.0.0.0")
