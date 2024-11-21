@@ -17,11 +17,10 @@ def get_requirements(file_path:str)->List[str]:
     return requirements
 
 setup(
-name='cv_project',
-version='0.0.1',
-author='Arnav',
-author_email='lahanearnav9@gmail.com',
-packages=find_packages(),
-install_requires=get_requirements('requirements.txt')
-
+    name='cv_project',
+    version='0.0.1',
+    author='Arnav',
+    author_email='lahanearnav9@gmail.com',
+    packages=find_packages(),
+    install_requires=get_requirements('requirements.txt')
 )

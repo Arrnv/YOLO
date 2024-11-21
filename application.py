@@ -3,13 +3,13 @@ import os
 from werkzeug.utils import secure_filename
 from src.main import main 
 
-app = Flask(__name__)
+application= Flask(__name__)
 
 # Configuration
 UPLOAD_FOLDER = 'uploads'
 OUTPUT_FOLDER = 'output_videos'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['OUTPUT_FOLDER'] = OUTPUT_FOLDER
+application.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+application.config['OUTPUT_FOLDER'] = OUTPUT_FOLDER
 ALLOWED_EXTENSIONS = {'mp4'}
 
 # Ensure upload and output folders exist
@@ -19,11 +19,11 @@ os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/')
+@application.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/process', methods=['POST'])
+@application.route('/process', methods=['POST'])
 def process_video():
     if 'file' not in request.files:
         return "No file part", 400
@@ -34,8 +34,8 @@ def process_video():
 
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
-        input_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        output_path = os.path.join(app.config['OUTPUT_FOLDER'], 'output_video.mp4')
+        input_path = os.path.join(application.config['UPLOAD_FOLDER'], filename)
+        output_path = os.path.join(application.config['OUTPUT_FOLDER'], 'output_video.mp4')
 
         # Save the file to the upload folder
         file.save(input_path)
@@ -50,9 +50,9 @@ def process_video():
 
     return "Invalid file type", 400
 
-@app.route('/download')
+@application.route('/download')
 def download_video():
     return render_template('download.html', video_path='/output_videos/output_video.avi')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    application.run(debug=True)
