@@ -122,7 +122,7 @@ def process_video():
 
             # Save video
             save_video(output_video_frames, output_path)
-
+            print("working")
         except Exception as e:
             return f"Error processing video: {e}", 500
 
